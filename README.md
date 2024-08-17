@@ -33,4 +33,4 @@ The Movie Search App is a Single Page Application (SPA) built with React, Redux 
    npm install
 4. **Run the Application**
    ```bash
-   npm start
+   npm run dev
