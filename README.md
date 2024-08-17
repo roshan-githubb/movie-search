@@ -1,65 +1,33 @@
-#Movie Search App
-Overview
-The Movie Search App is a single-page application built using React, Redux Toolkit, and TypeScript. It allows users to search for movies, view detailed information, and manage a watchlist. The app interacts with the OMDB API to fetch movie data.
+# Movie Search App
 
-Key Features
-Search Bar: Search for movies by title.
-Search Results: Display a list of movies with posters, titles, and release years.
-Movie Detail Page: View detailed information about a selected movie.
-Watchlist Page: Manage a list of favorite movies, including adding and removing movies from the watchlist.
-Persistent Watchlist: The watchlist persists across sessions using local storage.
-Technical Specifications
-React: For building the UI components.
-Redux Toolkit: For state management (search results, movie details, and watchlist).
-TypeScript: For strong typing and better development experience.
-React Router: For navigation between views (Home/Search, Movie Detail, Watchlist).
-OMDB API: For fetching movie data.
-Installation
-To run this project locally, follow these steps:
+## Project Overview
 
-Clone the repository:
+The Movie Search App is a Single Page Application (SPA) built with React, Redux Toolkit, and TypeScript. It allows users to search for movies, view detailed information about selected movies, and manage a watchlist. The application interacts with the OMDB API to fetch movie data.
 
-bash
-Copy code
-git clone https://github.com/roshan-githubb/movie-search.git
-Navigate into the project directory:
+## Features
 
-bash
-Copy code
-cd movie-search
-Install dependencies:
+- **Search Bar**: Search for movies by title.
+- **Search Results**: View a list of movies matching the search query with their poster, title, and release year.
+- **Movie Detail Page**: View comprehensive details of a selected movie including poster, title, plot, genre, director, actors, and release date.
+- **Watchlist Management**: Add movies to a watchlist from both the search results and movie detail pages. Remove movies from the watchlist and persist the watchlist in local storage.
 
-bash
-Copy code
-npm install
-Create a .env file in the root directory and add your OMDB API key:
+## Technical Specifications
 
-makefile
-Copy code
+- **React**: For building the user interface.
+- **Redux Toolkit**: For state management.
+- **React Router**: For navigation between different views.
+- **TypeScript**: For strong type definitions.
+- **OMDB API**: For movie data retrieval.
 
-Start the development server:
+## Installation
 
-bash
-Copy code
-npm start
-The application will be available at http://localhost:3000.
+1. **Clone the Repository**
 
-Usage
-Home/Search Page: Use the search bar to find movies. Click on a movie to view its details.
-Movie Detail Page: View detailed information about the movie and add it to your watchlist.
-Watchlist Page: View all movies added to your watchlist and remove them if needed.
-Deployment
-This application can be deployed using services like GitHub Pages, Vercel, or Netlify. For deployment instructions, please refer to the documentation of the respective hosting service.
-
-API Key
-To interact with the OMDB API, you need an API key. Follow these steps to obtain it:
-
-Visit the OMDB API website.
-Sign up for a free API key.
-Add the API key to the .env file as mentioned in the Installation section.
-Contributing
-If you have suggestions or improvements, feel free to submit a pull request or open an issue.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
+   ```bash
+   git clone https://github.com/roshan-githubb/movie-search.git
+2. **Navigate to the Project Directory**
+   cd movie-search
+3. **Install Dependencies**
+   npm install
+4. **Run the Application**
+   npm start
