@@ -31,6 +31,9 @@ The Movie Search App is a Single Page Application (SPA) built with React, Redux 
 3. **Install Dependencies**
    ```bash
    npm install
-4. **Run the Application**
+4. **Write your own api key**
+   ```bash
+   In searchSlice.ts
+5. **Run the Application**
    ```bash
    npm run dev
