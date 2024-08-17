@@ -26,8 +26,11 @@ The Movie Search App is a Single Page Application (SPA) built with React, Redux 
    ```bash
    git clone https://github.com/roshan-githubb/movie-search.git
 2. **Navigate to the Project Directory**
+   ```bash
    cd movie-search
 3. **Install Dependencies**
+   ```bash
    npm install
 4. **Run the Application**
+   ```bash
    npm start
