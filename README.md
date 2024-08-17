@@ -1,4 +1,4 @@
-Movie Search App
+#Movie Search App
 Overview
 The Movie Search App is a single-page application built using React, Redux Toolkit, and TypeScript. It allows users to search for movies, view detailed information, and manage a watchlist. The app interacts with the OMDB API to fetch movie data.
 
