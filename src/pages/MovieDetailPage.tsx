@@ -1,29 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams, Link } from 'react-router-dom';
 import { RootState, AppDispatch } from '../app/store';
 import MovieDetail from '../components/MovieDetail';
-import { Link } from 'react-router-dom';
+import { fetchMovieDetail, clearMovieDetail } from '../features/movieDetailSlice';
 import { addMovieToWatchlist, removeMovieFromWatchlist } from '../features/watchlistSlice';
 import { MovieDetail as MovieDetailType, Movie } from '../types/movie';
 
 const MovieDetailPage: React.FC = () => {
+  const { imdbID } = useParams<{ imdbID: string }>();
   const dispatch = useDispatch<AppDispatch>();
-  const movieDetail = useSelector((state: RootState) => state.movieDetail.movie);
+  const { movie, status } = useSelector((state: RootState) => state.movieDetail);
   const watchlist = useSelector((state: RootState) => state.watchlist.movies);
 
-  if (!movieDetail) {
-    return <p className="text-center text-lg">No movie details available.</p>;
-  }
+  useEffect(() => {
+    window.scroll(0,0)
+    if (imdbID) {
+      dispatch(fetchMovieDetail(imdbID));
+    }
 
- const movieDetailTyped = movieDetail as MovieDetailType;
+    return () => {
+      dispatch(clearMovieDetail());
+    };
+  }, [dispatch, imdbID]);
 
-  const isAdded = watchlist.some(movie => movie.imdbID === movieDetailTyped.imdbID);
+  const isLoading = status === 'loading';
+  const isAdded = movie ? watchlist.some(m => m.imdbID === movie.imdbID) : false;
 
   const handleAddToWatchlist = () => {
-    if (isAdded) {
-      dispatch(removeMovieFromWatchlist(movieDetailTyped as unknown as Movie));
-    } else {
-      dispatch(addMovieToWatchlist(movieDetailTyped as unknown as Movie));
+    if (movie) {
+      if (isAdded) {
+        dispatch(removeMovieFromWatchlist(movie as Movie));
+      } else {
+        dispatch(addMovieToWatchlist(movie as Movie));
+      }
     }
   };
 
@@ -43,13 +53,13 @@ const MovieDetailPage: React.FC = () => {
           </Link>
         </div>
       </nav>
-      <h2 className="text-3xl font-bold text-center">Movie Details</h2>
+      <h2 className="text-3xl font-bold text-center mb-4">Movie Details</h2>
       <MovieDetail
-        movie={movieDetailTyped}
+        movie={movie as MovieDetailType}
         onAddToWatchlist={handleAddToWatchlist}
         isAdded={isAdded}
+        loading={isLoading}
       />
-      <hr className="my-4 border-t-2 border-gray-300" />
     </div>
   );
 };
